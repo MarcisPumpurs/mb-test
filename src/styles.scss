@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	//box-sizing: border-box;
+	background: linear-gradient(180deg, #ffffff 0%, #f2f5fa 100%);
 }
 
 $color-primary: #4066a5;
@@ -16,7 +17,6 @@ app-root {
 }
 
 .subheading {
-	position: absolute;
 	width: 400px;
 	font-family: Arial;
 	font-style: normal;
@@ -31,7 +31,6 @@ app-root {
 }
 
 .heading {
-	position: absolute;
 	width: 399px;
 	font-family: Georgia;
 	font-style: normal;
@@ -90,21 +89,43 @@ app-root {
 }
 
 .pineapple {
-	position: absolute;
 	width: 78px;
 	height: 16px;
-	left: 41px;
-	top: 21px;
+	margin: 20px 0 0 15px;
 	background: #131821;
 	background: url(/assets/img/pineapple.svg);
 }
 
 .union {
-	position: absolute;
 	width: 25px;
 	height: 40px;
-	left: 1px;
-	top: 1px;
 	background: $color-primary;
 	background: url(/assets/img/union.svg);
+}
+
+.circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 20px;
+	margin-top: 1px;
+	width: 42px;
+	height: 42px;
+	border: 2px solid #e2e3e4;
+	border-radius: 50%;
+	font-size: 18px;
+	color: #131821;
+	opacity: 0.3;
+}
+
+.seperator {
+	border-top: 1px solid #e3e3e4;
+	margin: 16px 0 0 140px;
+	width: 400px;
+	height: 1px;
+}
+
+.container-icons {
+	display: flex;
+	margin: 48px 0 0 218px;
 }

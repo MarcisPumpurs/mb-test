@@ -12,16 +12,7 @@ $color-base4: #f2f5fa;
 	padding: 0;
 	li {
 		display: inline-block;
-		//width: 42px;
-		//height: 26px;
 		margin: 15px 2px 0px 28px;
-
-		// font-family: Arial;
-		// font-style: normal;
-		// font-weight: normal;
-		//font-size: 16px;
-		//line-height: 26px;
-		/* identical to box height, or 162% */
 
 		color: $color-base2;
 
@@ -36,22 +27,17 @@ $color-base4: #f2f5fa;
 }
 
 .top-bar {
-	position: absolute;
 	display: flex;
 	width: 480px;
 	height: 40px;
-	left: 100px;
-	top: 100px;
+	margin: 99px 0 0 100px;
 	justify-content: flex-end;
 }
 
 .logo-pineapple {
-	//flex-grow: 1;
+	flex-grow: 1;
 	display: flex;
-	//display: flex;
-	position: absolute;
+	justify-self: flex-start;
 	width: 118px;
 	height: 40px;
-	left: -1px;
-	top: -1px;
 }

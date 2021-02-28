@@ -1,15 +1,12 @@
 .heading {
-	left: 140px;
-	top: 348px;
+	margin: 75px 0 0 140px;
 }
 
 .subheading {
-	left: 140px;
-	top: 422px;
+	margin: 16px 0 0 140px;
 }
 
 .form-subscribe {
-	position: absolute;
 	display: flex;
 	height: 70px;
 	border: 1px solid #e3e3e4;
@@ -22,7 +19,7 @@
 	border: none;
 	margin-top: 2px;
 	width: 573px;
-	height: 65px;
+	height: 64px;
 	//vertical-align: middle;
 }
 
@@ -32,17 +29,16 @@
 	// font-weight: normal;
 	font-size: 16px;
 	line-height: 40px;
-	padding-left: 38px;
+	padding-left: 37px;
 	color: #6a707b;
 }
 
-.line-input {
-	position: absolute;
+.container-input {
+	position: relative;
 	z-index: 10;
 	height: 70px;
 	width: 659px;
-	left: 100px;
-	top: 539px;
+	margin: 49px 0 0 100px;
 	background: #ffffff;
 	border-left: 4px solid #4066a5;
 	//border: 1px solid black;
@@ -70,12 +66,12 @@
 
 .container-checkbox {
 	display: flex;
-	position: absolute;
-	top: 124px;
-	left: 36px;
+	margin: 54px 0 0 36px;
 }
 
 .checkbox-standart {
+	width: 26px;
+	height: 26px;
 	visibility: hidden;
 }
 .checkbox {
@@ -89,9 +85,9 @@
 }
 
 .icon-ic_checkmark {
-	position: absolute;
-	top: 7px;
-	left: 3px;
+	position: relative;
+	top: -30px;
+	left: 4px;
 	font-size: 11px;
 	color: #ffffff;
 }
