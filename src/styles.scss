@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+	margin: 0;
+	//box-sizing: border-box;
+}
+
+$color-primary: #4066a5;
+$color-base1: #131821;
+$color-base2: #6a707b;
+$color-base3: #e3e3e4;
+$color-base4: #f2f5fa;
+
+app-root {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+}
+
+.subheading {
+	position: absolute;
+	width: 400px;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 28px;
+	/* identical to box height, or 175% */
+
+	color: $color-base1;
+
+	opacity: 0.5;
+}
+
+.heading {
+	position: absolute;
+	width: 399px;
+	font-family: Georgia;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	line-height: 44px;
+	/* identical to box height, or 137% */
+}
+
+.text {
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 28px;
+	/* or 175% */
+
+	color: $color-base2;
+}
+
+.paragraph {
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 28px;
+	/* identical to box height, or 175% */
+
+	color: $color-base1;
+
+	opacity: 0.5;
+}
+
+.text-mobile {
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 26px;
+	/* or 186% */
+
+	color: #6a707b;
+}
+
+.link {
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 28px;
+	/* identical to box height, or 175% */
+
+	text-decoration: underline solid #131821 .14em;
+
+	color: #131821;
+}
+
+.pineapple {
+	position: absolute;
+	width: 78px;
+	height: 16px;
+	left: 41px;
+	top: 21px;
+	background: #131821;
+	background: url(/assets/img/pineapple.svg);
+}
+
+.union {
+	position: absolute;
+	width: 25px;
+	height: 40px;
+	left: 1px;
+	top: 1px;
+	background: $color-primary;
+	background: url(/assets/img/union.svg);
+}

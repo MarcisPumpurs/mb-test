@@ -1,0 +1,97 @@
+.heading {
+	left: 140px;
+	top: 348px;
+}
+
+.subheading {
+	left: 140px;
+	top: 422px;
+}
+
+.form-subscribe {
+	position: absolute;
+	display: flex;
+	height: 70px;
+	border: 1px solid #e3e3e4;
+	box-sizing: border-box;
+	align-items: flex-start;
+}
+
+.input-email {
+	display: inline-block;
+	border: none;
+	margin-top: 2px;
+	width: 573px;
+	height: 65px;
+	//vertical-align: middle;
+}
+
+::placeholder {
+	font-family: Arial;
+	// font-style: normal;
+	// font-weight: normal;
+	font-size: 16px;
+	line-height: 40px;
+	padding-left: 38px;
+	color: #6a707b;
+}
+
+.line-input {
+	position: absolute;
+	z-index: 10;
+	height: 70px;
+	width: 659px;
+	left: 100px;
+	top: 539px;
+	background: #ffffff;
+	border-left: 4px solid #4066a5;
+	//border: 1px solid black;
+}
+
+.btn-subscribe {
+	//display: inline-block;
+	margin-top: 2px;
+	border: none;
+	padding: 0;
+	background: #ffffff;
+	width: 80px;
+	height: 67px;
+	display: flex;
+	//justify-content: center;
+	//align-items: center;
+}
+
+.icon-ic_arrow {
+	margin: 23px 13px;
+	font-size: 15px;
+	color: #131821;
+	opacity: 0.3;
+}
+
+.container-checkbox {
+	display: flex;
+	position: absolute;
+	top: 124px;
+	left: 36px;
+}
+
+.checkbox-standart {
+	visibility: hidden;
+}
+.checkbox {
+	//display: inline-block;
+	//position: absolute;
+	height: 26px;
+	width: 26px;
+	margin-right: 15px;
+	background-color: #4066a5;
+	border-radius: 5px;
+}
+
+.icon-ic_checkmark {
+	position: absolute;
+	top: 7px;
+	left: 3px;
+	font-size: 11px;
+	color: #ffffff;
+}

@@ -1,0 +1,57 @@
+$color-primary: #4066a5;
+$color-base1: #131821;
+$color-base2: #6a707b;
+$color-base3: #e3e3e4;
+$color-base4: #f2f5fa;
+
+.menu-list {
+	list-style-type: none;
+	//display: flex;
+	//align-items: flex-end;
+	margin: 0;
+	padding: 0;
+	li {
+		display: inline-block;
+		//width: 42px;
+		//height: 26px;
+		margin: 15px 2px 0px 28px;
+
+		// font-family: Arial;
+		// font-style: normal;
+		// font-weight: normal;
+		//font-size: 16px;
+		//line-height: 26px;
+		/* identical to box height, or 162% */
+
+		color: $color-base2;
+
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 28px;
+		color: $color-base2;
+		//opacity: 0.5;
+	}
+}
+
+.top-bar {
+	position: absolute;
+	display: flex;
+	width: 480px;
+	height: 40px;
+	left: 100px;
+	top: 100px;
+	justify-content: flex-end;
+}
+
+.logo-pineapple {
+	//flex-grow: 1;
+	display: flex;
+	//display: flex;
+	position: absolute;
+	width: 118px;
+	height: 40px;
+	left: -1px;
+	top: -1px;
+}
