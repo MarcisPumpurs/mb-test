@@ -173,44 +173,70 @@ app-root {
 	margin: 49px 0 0 100px;
 	background: $color-light;
 	border-left: 4px solid $color-primary;
-	&:focus {
-		background-color: red;
-		border-color: red;
-	}
 }
 
 .form-subscribe {
 	display: flex;
 	height: 70px;
-	border: 1px solid $color-base3;
+	//border: 1px solid $color-base3;
 	box-sizing: border-box;
 	align-items: flex-start;
 }
 
 .input-email {
 	display: inline-block;
-	border: none;
-	margin-top: 2px;
 	width: 573px;
-	height: 64px;
+	height: 67px;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 1px 0 0 37px;
+	border-width: 1px 0 1px 0;
+	border-color: $color-base3;
+	border-style: solid;
+}
+
+@mixin input-shadow {
+	box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+}
+
+.input-email:focus {
+	outline: none;
+	@include input-shadow;
+	+ .btn-subscribe {
+		@include input-shadow;
+	}
+}
+
+.input-email:hover {
+	border-color: $color-primary;
+	+ .btn-subscribe {
+		border-color: $color-primary;
+		@include input-shadow;
+		> .icon-ic_arrow {
+			color: $color-primary;
+			opacity: 1;
+		}
+	}
 }
 
 ::placeholder {
 	@extend %font-a;
 	font-size: 16px;
 	line-height: 40px;
-	padding-left: 37px;
 	color: $color-base2;
 }
 
 .btn-subscribe {
-	margin-top: 2px;
-	border: none;
+	display: flex;
 	padding: 0;
 	background: $color-light;
-	width: 80px;
-	height: 67px;
-	display: flex;
+	outline: none;
+	width: 82px;
+	height: 70px;
+	border-width: 1px 1px 1px 0;
+	border-color: $color-base3;
+	border-style: solid;
+	color: $color-base1;
 }
 
 //Checkbox
@@ -222,7 +248,6 @@ app-root {
 .checkbox-span {
 	display: grid;
 	grid-template-areas: "checkbox-label";
-
 	> * {
 		grid-area: checkbox;
 	}
@@ -253,15 +278,21 @@ app-root {
 }
 
 //Icons
+.icon-facebook,
+.icon-instagram,
+.icon-twitter,
+.icon-youtube-play {
+	opacity: 0.3;
+}
 .container-icons {
 	display: flex;
 	margin: 48px 0 0 218px;
 }
 
 .icon-ic_arrow {
-	margin: 23px 13px;
+	margin: 25px 13px;
 	font-size: 15px;
-	color: $color-base1;
+	color: inherit;
 	opacity: 0.3;
 }
 
@@ -285,7 +316,6 @@ app-root {
 	border-radius: 50%;
 	font-size: 18px;
 	color: $color-base1;
-	opacity: 0.3;
 }
 
 @mixin social($social_color) {
@@ -417,16 +447,16 @@ app-root {
 	}
 	.input-email {
 		width: 335px;
-		height: 54px;
+		height: 57px;
+		padding: 1px 0 0 14px;
 	}
 	::placeholder {
 		font-size: 16px;
 		line-height: 40px;
-		padding-left: 11px;
 	}
 	.btn-subscribe {
 		width: 73px;
-		height: 56px;
+		height: 60px;
 	}
 
 	//Footer
@@ -444,7 +474,6 @@ app-root {
 	}
 
 	//Icons anc checkbox
-
 	.container-checkbox {
 		margin: 21px 0 0 -5px;
 	}
@@ -459,7 +488,7 @@ app-root {
 		margin-right: 10px;
 	}
 	.icon-ic_arrow {
-		margin: 19px 10px;
+		margin: 21px 7px;
 		font-size: 14px;
 	}
 }
