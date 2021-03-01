@@ -1,7 +1,3 @@
-* {
-	//border: 1px solid black;
-}
-
 app-top {
 	display: block;
 	height: 200px;
@@ -15,21 +11,6 @@ app-main {
 app-bottom {
 	display: block;
 	height: 200px;
-}
-
-.container-content {
-	// width: 35vw;
-	// min-width: 453px;
-}
-
-.container-side {
-	position: absolute;
-	z-index: 1;
-	width: 1620px;
-	height: 1080px;
-	left: 680px;
-	top: 0px;
-	background: url(/assets/img/image_summer.png);
 }
 
 .app-side {
