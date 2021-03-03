@@ -139,6 +139,16 @@ app-root {
 	text-decoration-color: $color-link-active;
 }
 
+.heading-success {
+	position: relative;
+	top: -75px;
+}
+
+.subheading-success {
+	position: relative;
+	top: -70px;
+}
+
 //Logo
 .logo-pineapple {
 	flex-grow: 1;
@@ -164,6 +174,16 @@ app-root {
 	background: url(/assets/img/union.svg);
 }
 
+.success {
+	position: relative;
+	left: 141px;
+	top: -30px;
+	height: 70px;
+	width: 44px;
+	margin: 0px 0 0 0px;
+	background: url(/assets/img/success.svg);
+}
+
 //Form
 .container-input {
 	position: relative;
@@ -178,7 +198,6 @@ app-root {
 .form-subscribe {
 	display: flex;
 	height: 70px;
-	//border: 1px solid $color-base3;
 	box-sizing: border-box;
 	align-items: flex-start;
 }
@@ -237,6 +256,27 @@ app-root {
 	border-color: $color-base3;
 	border-style: solid;
 	color: $color-base1;
+}
+
+.btn-subscribe:hover {
+	border: 1px solid $color-primary;
+	> .icon-ic_arrow {
+		color: $color-primary;
+		opacity: 1;
+	}
+}
+
+.msg {
+	position: relative;
+	left: 0px;
+	color: red;
+}
+.error-email {
+	margin: -69px 0px 0px 3px;
+}
+.error-checkbox {
+	top: 95px;
+	left: 140px;
 }
 
 //Checkbox
@@ -353,6 +393,14 @@ app-root {
 	@include social(#CC0000);
 }
 
+.circle:hover,
+.circle:active {
+	> .icon {
+		color: $color-light;
+		opacity: 1;
+	}
+}
+
 //Media Queries
 
 @media (max-width: 575.98px) {
@@ -395,6 +443,12 @@ app-root {
 		}
 	}
 
+	.container-success {
+		position: relative;
+		top: 38px;
+		left: 0px;
+	}
+
 	//Logo
 	.logo-pineapple {
 		width: 50px;
@@ -405,6 +459,12 @@ app-root {
 	.pineapple {
 		position: relative;
 		visibility: hidden;
+	}
+
+	.success {
+		position: relative;
+		left: 20px;
+		top: 68px;
 	}
 
 	//Text
@@ -457,6 +517,14 @@ app-root {
 	.btn-subscribe {
 		width: 73px;
 		height: 60px;
+	}
+
+	.error-email {
+		top: -47px;
+	}
+	.error-checkbox {
+		top: 55px;
+		left: 26px;
 	}
 
 	//Footer
