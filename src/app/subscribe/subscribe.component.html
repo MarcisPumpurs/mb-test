@@ -29,23 +29,32 @@
                 <label for="terms"><span class="text">I agree to <a class="link" href="#">terms of
                             service</a></span></label>
             </div>
-            <div class="msg error-email" *ngIf="validationService.form.controls.email.touched == true">
-                <div *ngIf="validationService.form.controls.email.value == ''">
+            <div class="msg error-email" *ngIf="validationService.form.controls.email.touched == true ||
+                                                submitResponse.responseCode > 0">
+                <div *ngIf=" validationService.form.controls.email.value=='' || submitResponse.responseCode == 2">
                     Email address is required
                 </div>
-                <div *ngIf="validationService.form.controls.email.status == 'INVALID'">
-                    <div *ngIf="validationService.form.controls.email.value != '' &&
-                        !validationService.form.controls.email.errors?.pattern">
+                <div *ngIf="validationService.form.controls.email.status == 'INVALID' ||
+                            submitResponse.responseCode > 3">
+
+                    <div *ngIf="(validationService.form.controls.email.value != '' &&
+                                !validationService.form.controls.email.errors?.pattern &&
+                                !submitResponse.responseCode == 5) ||
+                                submitResponse.responseCode == 4">
                         Please provide a valid e-mail address
                     </div>
-                    <div class="msg error-email" *ngIf="validationService.form.controls.email.errors?.pattern">
+
+                    <div *ngIf="validationService.form.controls.email.errors?.pattern  ||
+                                                        submitResponse.responseCode == 5">
                         We are not accepting subscriptions from Colombia emails
                     </div>
+
                 </div>
             </div>
         </form>
     </div>
-    <div class="msg error-checkbox" *ngIf="validationService.form.controls.checkbox.value == false">
+    <div class="msg error-checkbox" *ngIf="validationService.form.controls.checkbox.value == false ||
+                                           submitResponse.checkbox == false">
         You must accept the terms and conditions
     </div>
 </div>

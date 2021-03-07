@@ -1,0 +1,59 @@
+<section class="container-data">
+    <button class="btn-data" (click)="sortOrder()">Sort: <span *ngIf="getAsc(); else ASC">DESC</span>
+        <ng-template #ASC>ASC</ng-template>
+    </button>
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort" (change)="getData()" [(ngModel)]="sort" class="btn-data">
+        <option value="date">Date</option>
+        <option value="name">Name</option>
+    </select>
+    <input [(ngModel)]="search" name="search" id="search" placeholder="Search ..." class="btn-data">
+    <button (click)="searchData()">Search</button>
+    <button (click)="resetFilters()" class="btn-data">Reset</button>
+    <button (click)="export()">Export</button>
+    <div>
+        <button *ngFor="let item of emailProviders" (click)="filterData(item.address)">{{item.name}}<br><span
+                class="btn-subscript">{{item.address}}</span></button>
+    </div>
+
+    <div *ngIf="error">{{error}}</div>
+    <div *ngIf="success">{{success}}</div>
+    <form [formGroup]="exportService.exportForm">
+        <div class="container-inner-data">
+            <h2>Registered e-mail list</h2>
+            <table class="table-emails">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Subscr. status</th>
+                        <th>Registration date</th>
+                        <th>Select</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of contacts">
+                        <td>{{item.id}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.status}}</td>
+                        <td>{{item.date}}</td>
+                        <td>
+                            <input type="checkbox" [value]="item.id" (change)="exportService.check($event)">
+
+                        </td>
+                        <td><button (click)=" deleteFromList(item.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+    <div>
+        <button [disabled]="getPage() < 2" (click)="prevPage()" class="btn-data">
+            < Page </button>
+                <button [disabled]="getPage() == getTotalPages()" (click)="nextPage()" class="btn-data"> Page >
+                </button>
+                <span> Page: {{getPage()}} of {{getTotalPages()}}</span>
+    </div>
+</section>
