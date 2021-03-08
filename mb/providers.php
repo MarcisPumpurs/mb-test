@@ -1,17 +1,15 @@
 <?php
 require_once 'provider.php';
 
-$providerList = [];
+
+//Request array of email providers
 $providers = Provider::getProviders();
 
 if (count($providers) > 0) {
-    $cr = 0;
-    foreach ($providers as $address => $name) {
-        $providerList[$cr]['name'] = $name;
-        $providerList[$cr++]['address'] = $address;
-    }
-    echo json_encode(['dataset' => $providerList]);
-
+    //Format and return email provider list to client
+    $providerArray = Provider::format($providers);
+    echo json_encode(['dataset' => $providerArray]);
 } else {
+    //No records returned
     http_response_code(404);
 }

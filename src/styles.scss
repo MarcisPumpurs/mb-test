@@ -84,11 +84,11 @@ app-root {
 	padding: 0;
 
 	li {
-		@extend %font-a;
-		@include standart-size;
 		display: inline-block;
 		margin: 15px 0 0 31px;
-		color: $color-base2;
+	}
+	.link {
+		text-decoration: none;
 	}
 }
 
@@ -420,7 +420,6 @@ app-root {
 }
 
 //Media Queries
-
 @media (max-width: 575.98px) {
 }
 
@@ -431,11 +430,10 @@ app-root {
 	.container-side {
 		position: fixed;
 		width: 100vw;
-		height: calc(100vh - 66px);
 		top: 66px;
 		left: 0px;
-		background-size: cover;
-		background-position: calc(50% - 40px) 50%;
+		background-size: auto 83%;
+		background-position: 58% 0;
 	}
 
 	//Navigation
@@ -456,6 +454,8 @@ app-root {
 	.menu-list {
 		li {
 			margin: 21px 21px 0 0px;
+		}
+		.link {
 			font-size: 14px;
 			line-height: 24px;
 		}

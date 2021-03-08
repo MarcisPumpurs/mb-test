@@ -1,4 +1,4 @@
-
+//Response to contact save request
 export class SubmitResponse{
     public email: string;
     public responseCode: number;

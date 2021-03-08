@@ -13,16 +13,16 @@ import { StateService } from '../services/state.service';
 })
 export class DataComponent implements OnInit {
 
-  public contacts: Contact[];
-  private paginatedContacts: Record<number, Contact[]>;
-  public page = 1;
+  public contacts: Contact[]; //Contacts in current page array
+  private paginatedContacts: Record<number, Contact[]>; //All contacts
+  public page = 1; //Current page
   private totalPages = 0
-  private pagination: number = 10;
+  private pagination: number = 10; //Records per page
   public emailProviders: Provider[];
-  public sort: string = 'date';
-  private asc: boolean = true;
-  private filter: string = '';
-  public search: string = '';
+  public sort: string = 'date'; //Sorting property
+  private asc: boolean = true; //Sorting direction
+  private filter: string = ''; //Email provider filter
+  public search: string = '';  //User entered search string
 
   constructor(private dataService: DataService, 
               public exportService: ExportService, 
@@ -30,9 +30,10 @@ export class DataComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    this.stateService.data = true;
+    this.stateService.data = true; //Special data view mode
   }
 
+  //Get records according to all filters
   getData(): void {
     this.dataService.getAll(this.pagination, this.sort, this.asc, this.filter, this.search).subscribe(
       (res: Record<number, Contact[]>) => {
@@ -46,6 +47,7 @@ export class DataComponent implements OnInit {
         console.log(err);
       }
     );
+    //Get actual email providers list
     this.dataService.getEmailProviders().subscribe(
       (res: Provider[]) => {
         this.emailProviders = res;
@@ -92,6 +94,7 @@ export class DataComponent implements OnInit {
     return this.asc;
   }
 
+  //contact delete
   deleteFromList(id: number): void{
     this.dataService.deleteEmail(id).subscribe(
       (res => {
@@ -122,6 +125,7 @@ export class DataComponent implements OnInit {
     return this.totalPages;
   }
 
+  //Export selected data to csv
   export(){
     this.exportService.exportData(this.exportService.exportForm.value.checkboxes).subscribe(
       (response) => {

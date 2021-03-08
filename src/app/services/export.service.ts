@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ExportService {
-  baseUrl = 'http://localhost/mb';
+  baseUrl = 'http://localhost/mb'; //Location of PHP files
   public exportForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     this.exportForm = this.formBuilder.group({
@@ -15,6 +15,7 @@ export class ExportService {
     });
    }
 
+   //Collect selected checkbox input of contacts to process them
    check(event) {
     const checkboxes: FormArray = this.exportForm.get('checkboxes') as FormArray;
 
@@ -32,6 +33,7 @@ export class ExportService {
     }
  }
 
+ //Receive blob from server and pass to export as csv
   exportData(ids: number[]): Observable<Blob>{
     return this.http.post(`${this.baseUrl}/export`,{ ids : ids}, { responseType: 'blob'});
   }

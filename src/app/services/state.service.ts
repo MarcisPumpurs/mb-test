@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class StateService {
   constructor() { }
+  //Flags to change view specifics
   public submited: boolean = false;
   public data: boolean = false;
 }

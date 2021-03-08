@@ -17,7 +17,7 @@ class contact
         $this->setEmail($email);
     }
 
-    /**
+    /** Format data to return to client
      * @param bool $result
      * @return array
      */
@@ -34,7 +34,7 @@ class contact
         }
         return $contacts;
     }
-
+    //Save new contact in DB
     public function save(): int
     {
         $con = Connect::create();
@@ -49,6 +49,7 @@ class contact
         }
     }
 
+    //Delete Contact from DB
     public static function delete($id): bool
     {
         $con = Connect::create();
@@ -63,6 +64,7 @@ class contact
         }
     }
 
+    //Get array of contacts by ID's
     public static function getContactsByIds(object $request): ?array
     {
         $con = Connect::create();
@@ -78,6 +80,7 @@ class contact
         return $contacts;
     }
 
+    //Get array of contacts by client filters and search parameters
     public static function getContactsByFilters(string $filter, string $search): ?array
     {
         $con = Connect::create();
@@ -93,6 +96,7 @@ class contact
         return $contacts;
     }
 
+    //Sort contact array by property and direction
     public static function sort(array $contacts, string $sortOrder, string $sortAttribute): array
     {
         if ($sortAttribute === 'name') {
@@ -112,6 +116,7 @@ class contact
         return $contacts;
     }
 
+    //Paginate contact array
     public static function paginate(array $contacts, int $pagination): array
     {
         $paginatedContacts = [];

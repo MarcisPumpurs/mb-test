@@ -22,6 +22,7 @@ export class SubscribeComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  //Form submission and validation
   public submit(){
     if(this.validationService.form){
       this.stateService.submited = true;
@@ -29,6 +30,7 @@ export class SubscribeComponent implements OnInit {
     }  
   }
 
+  //Data submit for saving in DB
   private submitData(email: string, checkbox: boolean){
     this.dataService.addContact(email, checkbox)
     .subscribe(
@@ -45,9 +47,5 @@ export class SubscribeComponent implements OnInit {
   }
 
   public validate(){ }
-
-  public delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  }
 
 }

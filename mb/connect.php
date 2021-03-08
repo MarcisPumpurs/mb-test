@@ -12,13 +12,10 @@ class Connect
     public static function create(): Mysqli
     {
         $conn = new mysqli(self::HOST, self::USER, self::PASS, self::DB);
-
         if ($conn->connect_error) {
             die("Could not connect to DB: " . $conn->connect_error);
         }
-
         $conn->set_charset("utf8mb4");
-
         return $conn;
     }
 

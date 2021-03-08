@@ -23,13 +23,14 @@ class provider
         $qry = $con->prepare("SELECT email FROM contacts");
         $qry->execute();
         $result = $qry->get_result();
-        $providers = self::format($result);
+        $providers = self::fetch($result);
         $qry->close();
         $con->close();
         return $providers;
     }
 
-    public static function format(object $result): array
+    //Extract necessary data from DB to prepare email provider array
+    public static function fetch(object $result): array
     {
         $providers = [];
         while ($row = $result->fetch_assoc()) {
@@ -37,6 +38,17 @@ class provider
             $providers [$provider] = ucfirst(substr($provider, 0, strrpos($provider, '.')));
         }
         return $providers;
+    }
+
+    //Format data to return to client
+    public static function format(array $providers): array{
+        $providerArray = [];
+        $cr = 0;
+        foreach ($providers as $address => $name) {
+            $providerArray[$cr]['name'] = $name;
+            $providerArray[$cr++]['address'] = $address;
+        }
+        return $providerArray;
     }
 
 

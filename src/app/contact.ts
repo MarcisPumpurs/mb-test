@@ -1,3 +1,4 @@
+//Contacts - containing entered emails.
 export class Contact{
     email: string = '';
     constructor(

@@ -11,22 +11,15 @@ import { Provider } from '../provider';
 })
 export class DataService {
 
-  public baseUrl = 'http://localhost/mb';
-  public paginatedContacts: Contact[][];
-  public validationCode: number;
-  public submitResponse: SubmitResponse;
+  public baseUrl = 'http://localhost/mb'; //Location of PHP files
+  public paginatedContacts: Contact[][];  //All contacts
+  public validationCode: number;  //Validation code from saving contact
+  public submitResponse: SubmitResponse; //Response from saving contact
   public contact = new Contact('');
                   
   constructor(private http: HttpClient) { }
-
-  getValidationCode(): number{
-    return this.validationCode;
-  }
-    
-  setValidationCode(validationCode: number): void{
-    this.validationCode  = validationCode;
-  }
-         
+  
+  //Get data from server using filters
   getAll(pagination: number, sort: string, asc: boolean, filter: string, search: string): Observable<Record<number, Contact[]>> {
     return this.http.get<Record<number, Contact[]>>(`${this.baseUrl}/list.php?pag=${pagination}&sort=${sort}&asc=${asc}&filter=${filter}&search=${search}`).pipe(
       map(res => {
@@ -36,11 +29,13 @@ export class DataService {
     catchError(this.handleError));
   }
 
+  //Error handling
   private handleError(error: HttpErrorResponse) {
     console.log(error);
     return throwError('Could not fullfill request!');
   }
 
+  //Add new contact request to server
   addContact(email: string, checkbox: boolean): Observable<SubmitResponse> {
     return this.http.post<SubmitResponse>(`${this.baseUrl}/add`, { email: email, checkbox: checkbox})
       .pipe(
@@ -52,7 +47,7 @@ export class DataService {
         ),
         catchError(this.handleError));
   }
-
+//Get email providers request to server
   getEmailProviders(): Observable<Provider[]>{
     return this.http.get<Provider[]>(`${this.baseUrl}/providers`).pipe(
       map(
@@ -62,7 +57,7 @@ export class DataService {
       ),
       catchError(this.handleError));
   }
-
+//Delete contact request to server
   deleteEmail(id: number): Observable<object>{
     return this.http.delete(`${this.baseUrl}/del.php?id=${id}`).pipe(
       catchError(this.handleError));
