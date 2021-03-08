@@ -13,6 +13,5 @@ export class ValidationService {
       email: ['', [Validators.required, Validators.email, Validators.pattern(".*(?<!.co)$")]],
       checkbox: [true, Validators.requiredTrue]
     });
-        
    }
 }

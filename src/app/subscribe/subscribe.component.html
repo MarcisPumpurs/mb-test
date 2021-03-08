@@ -17,7 +17,7 @@
                     (click)="submit()"><i class="icon-ic_arrow"></i></button>
             </div>
             <div class="container-checkbox">
-                <label class="checkbox-label">
+                <label class="checkbox-label" for="terms">
                     <span class="checkbox-span">
                         <input class="checkbox-standart" [formControlName]="'checkbox'" ng-checked="true" id="terms"
                             type="checkbox" name="terms" checked>
@@ -29,30 +29,30 @@
                 <label for="terms"><span class="text">I agree to <a class="link" href="#">terms of
                             service</a></span></label>
             </div>
+            <!-- Email input validation error messages -->
             <div class="msg error-email" *ngIf="validationService.form.controls.email.touched == true ||
                                                 submitResponse.responseCode > 0">
-                <div *ngIf=" validationService.form.controls.email.value=='' || submitResponse.responseCode == 2">
+                <div *ngIf=" validationService.form.controls.email.value=='' || 
+                             submitResponse.responseCode == 2">
                     Email address is required
                 </div>
                 <div *ngIf="validationService.form.controls.email.status == 'INVALID' ||
                             submitResponse.responseCode > 3">
-
                     <div *ngIf="(validationService.form.controls.email.value != '' &&
                                 !validationService.form.controls.email.errors?.pattern &&
-                                !submitResponse.responseCode == 5) ||
+                                submitResponse.responseCode != 5) ||
                                 submitResponse.responseCode == 4">
                         Please provide a valid e-mail address
                     </div>
-
                     <div *ngIf="validationService.form.controls.email.errors?.pattern  ||
-                                                        submitResponse.responseCode == 5">
+                                submitResponse.responseCode == 5">
                         We are not accepting subscriptions from Colombia emails
                     </div>
-
                 </div>
             </div>
         </form>
     </div>
+    <!-- Checkbox validation error message -->
     <div class="msg error-checkbox" *ngIf="validationService.form.controls.checkbox.value == false ||
                                            submitResponse.checkbox == false">
         You must accept the terms and conditions

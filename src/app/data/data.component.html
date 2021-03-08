@@ -15,9 +15,6 @@
         <button *ngFor="let item of emailProviders" (click)="filterData(item.address)">{{item.name}}<br><span
                 class="btn-subscript">{{item.address}}</span></button>
     </div>
-
-    <div *ngIf="error">{{error}}</div>
-    <div *ngIf="success">{{success}}</div>
     <form [formGroup]="exportService.exportForm">
         <div class="container-inner-data">
             <h2>Registered e-mail list</h2>

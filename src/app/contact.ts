@@ -6,10 +6,6 @@ export class Contact{
         id?: number,
         date?: string,
         validation?: number
-
-        // model: string,
-        // price: number,
-        // id?:   number
     ){
         this.setEmail(email);
     }
