@@ -42,6 +42,7 @@ export class DataComponent implements OnInit {
         this.contacts = res[this.page];
       },
       (err) => {
+        this.paginatedContacts = [];
         this.error = err;
       }
     );
