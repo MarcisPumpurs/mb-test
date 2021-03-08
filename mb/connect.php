@@ -3,9 +3,9 @@
 class Connect
 {
 // DB connection settings
-    const HOST = 'localhost:3307';
+    const HOST = 'localhost:3306';
     const USER = 'root';
-    const PASS = 'rooter';
+    const PASS = '';
     const DB = 'mb_test';
 
 // Connection to DB

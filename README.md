@@ -1,27 +1,42 @@
 # MbTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+This project was developed using Angular primarily for frontend part, PHP for a server side.
 
-## Development server
+## To start project locally ...
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install Node.js if not present on system.
+   https://nodejs.org/en/download/
+   
+2. Install Angular. You can do it using command line - npm install -g @angular/cli
+  Or refer to official documentation: https://angular.io/guide/setup-local.
+   
+3. Create new Angular project in command lin - ng new my-dream-app
 
-## Code scaffolding
+4.  Download and install XAMPP server solution to use as PHP and MySQL server in our case.
+    https://www.apachefriends.org/download.html.
+    
+5. Download all content to Angular project directory.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+6. From this directory move folder named 'mb' to XAMPP htdocs root directory.
 
-## Build
+7. Modify mb/connect.php settings to correspond to your server and mysql settings.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+8. To run Apache and MySQL servers start XAMPPS admin panel and click start next to these services
 
-## Running unit tests
+9. Install the necessary database and table using scripts in install.sql
+  You can use MySQL workbench to run them if you prefer.
+   https://dev.mysql.com/downloads/workbench/
+   
+10. To start Angular server run in console - ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+11. If everything is done right you should be able to open project in http://localhost:4200/
+    And access data administering in http://localhost:4200/data
+    
+System data, the project was tested on:
 
-## Running end-to-end tests
+Angular CLI: 11.1.4
+Node: 14.15.4
+OS: win32 x64
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Apache/2.4.46 (Win64) OpenSSL/1.1.1h PHP/8.0.2/
+10.4.17-MariaDB
