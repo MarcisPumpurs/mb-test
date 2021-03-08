@@ -36,7 +36,7 @@ class provider
             $provider = substr($row['email'], strpos($row['email'], '@') + 1);
             $providers [$provider] = ucfirst(substr($provider, 0, strrpos($provider, '.')));
         }
-        return array_unique($providers);
+        return $providers;
     }
 
 

@@ -6,7 +6,7 @@ $postdata = file_get_contents("php://input");
 
 if (isset($postdata) && !empty($postdata)) {
     $request = json_decode($postdata);
-    $email = filter_var($request->email, FILTER_SANITIZE_EMAIL);
+    $email = strtolower(filter_var($request->email, FILTER_SANITIZE_EMAIL));
     $responseCode = 0;
 
     if ($request->checkbox) {

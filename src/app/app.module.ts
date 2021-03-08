@@ -13,6 +13,7 @@ import { SideComponent } from './side/side.component';
 import { ValidationService } from './services/validation.service';
 import { DataComponent } from './data/data.component';
 import { DataService } from './services/data.service';
+import { StateService } from './services/state.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DataService } from './services/data.service';
   ],
   providers: [
     ValidationService,
-    DataService
+    DataService,
+    StateService
   ],
   bootstrap: [AppComponent]
 })

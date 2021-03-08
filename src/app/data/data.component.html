@@ -7,11 +7,11 @@
         <option value="date">Date</option>
         <option value="name">Name</option>
     </select>
-    <input [(ngModel)]="search" name="search" id="search" placeholder="Search ..." class="btn-data">
+    <input [(ngModel)]="search" name="search" id="search" placeholder="Search ..." class="field-search">
     <button (click)="searchData()">Search</button>
     <button (click)="resetFilters()" class="btn-data">Reset</button>
     <button (click)="export()">Export</button>
-    <div>
+    <div class="container-btn-providers">
         <button *ngFor="let item of emailProviders" (click)="filterData(item.address)">{{item.name}}<br><span
                 class="btn-subscript">{{item.address}}</span></button>
     </div>
@@ -22,23 +22,20 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Select</th>
                         <th>Email</th>
                         <th>Subscr. status</th>
                         <th>Registration date</th>
-                        <th>Select</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of contacts">
                         <td>{{item.id}}</td>
+                        <td><input type="checkbox" [value]="item.id" (change)="exportService.check($event)"></td>
                         <td>{{item.email}}</td>
                         <td>{{item.status}}</td>
                         <td>{{item.date}}</td>
-                        <td>
-                            <input type="checkbox" [value]="item.id" (change)="exportService.check($event)">
-
-                        </td>
                         <td><button (click)=" deleteFromList(item.id)">Delete</button>
                         </td>
                     </tr>

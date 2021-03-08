@@ -70,19 +70,6 @@ app-root {
 	background: no-repeat url(/assets/img/image_summer.png);
 }
 
-.container-data {
-	position: absolute;
-	left: 40px;
-	z-index: 20;
-	width: 600px;
-	height: 350px;
-	margin: auto;
-	@include bg-dark;
-}
-.container-inner-data {
-	margin-left: 20px;
-}
-
 .seperator {
 	border-top: 1px solid $color-base3;
 	margin: 16px 0 0 140px;
@@ -111,11 +98,6 @@ app-root {
 	height: 40px;
 	margin: 99px 0 0 100px;
 	justify-content: flex-end;
-}
-
-.btn-data {
-	margin: 10px;
-	padding: 0.1em;
 }
 
 //Text
@@ -212,8 +194,8 @@ app-root {
 	position: relative;
 	z-index: 10;
 	height: 70px;
-	width: 659px;
-	margin: 49px 0 0 100px;
+	width: 656px;
+	margin: 51px 0 0 102px;
 	background: $color-light;
 	border-left: 4px solid $color-primary;
 }
@@ -227,7 +209,7 @@ app-root {
 
 .input-email {
 	display: inline-block;
-	width: 573px;
+	width: 537px;
 	height: 67px;
 	font-size: 16px;
 	line-height: 24px;
@@ -305,7 +287,7 @@ app-root {
 //Checkbox
 .container-checkbox {
 	display: flex;
-	margin: 54px 0 0 36px;
+	margin: 53px 0 0 35px;
 }
 
 .checkbox-span {
@@ -353,7 +335,7 @@ app-root {
 }
 
 .icon-ic_arrow {
-	margin: 25px 13px;
+	margin: 26px 14px;
 	font-size: 15px;
 	color: inherit;
 	opacity: 0.3;
@@ -432,6 +414,11 @@ app-root {
 	font-size: 8px;
 }
 
+.footer-success {
+	position: relative;
+	top: -125px;
+}
+
 //Media Queries
 
 @media (max-width: 575.98px) {
@@ -476,8 +463,22 @@ app-root {
 
 	.container-success {
 		position: relative;
-		top: 38px;
+		top: -37px;
 		left: 0px;
+	}
+	.footer-success {
+		position: relative;
+		top: 75px;
+	}
+	.container-subscribe-success {
+		display: block;
+		position: relative;
+		top: 54px;
+		height: 371px;
+		width: 335px;
+		z-index: 20;
+		margin: auto;
+		@include bg;
 	}
 
 	//Logo
@@ -495,7 +496,7 @@ app-root {
 	.success {
 		position: relative;
 		left: 20px;
-		top: 68px;
+		top: 67px;
 	}
 
 	//Text
@@ -517,6 +518,9 @@ app-root {
 
 	//Form
 	app-subscribe {
+	}
+
+	.container-subscribe {
 		display: block;
 		position: relative;
 		top: -22px;
@@ -528,8 +532,8 @@ app-root {
 	}
 
 	.container-input {
-		top: -4px;
-		left: -79px;
+		top: -6px;
+		left: -81px;
 		height: 60px;
 		width: 290px;
 	}
@@ -546,7 +550,7 @@ app-root {
 		line-height: 40px;
 	}
 	.btn-subscribe {
-		width: 73px;
+		width: 85px;
 		height: 60px;
 	}
 
@@ -568,8 +572,8 @@ app-root {
 		position: relative;
 		z-index: 30;
 		width: 295px;
-		top: -123px;
-		left: -110px;
+		top: -113px;
+		left: -117px;
 	}
 
 	//Icons anc checkbox
@@ -580,14 +584,14 @@ app-root {
 		position: relative;
 		z-index: 30;
 		margin: 0;
-		top: -105px;
-		left: 62px;
+		top: -95px;
+		left: 53px;
 	}
 	.circle {
 		margin-right: 10px;
 	}
 	.icon-ic_arrow {
-		margin: 21px 7px;
+		margin: 21px 13px;
 		font-size: 14px;
 	}
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { count } from 'rxjs/operators';
 import { Contact } from '../contact';
 import { Provider } from '../provider';
 import { DataService } from '../services/data.service';
 import { ExportService } from '../services/export.service';
+import { StateService } from '../services/state.service';
 
 @Component({
   selector: 'app-data',
@@ -22,10 +24,13 @@ export class DataComponent implements OnInit {
   private filter: string = '';
   public search: string = '';
 
-  constructor(private dataService: DataService, public exportService: ExportService) { }
+  constructor(private dataService: DataService, 
+              public exportService: ExportService, 
+              public stateService: StateService) { }
 
   ngOnInit(): void {
     this.getData();
+    this.stateService.data = true;
   }
 
   getData(): void {
@@ -37,6 +42,7 @@ export class DataComponent implements OnInit {
         this.contacts = res[this.page];
       },
       (err) => {
+        this.resetFilters();
         console.log(err);
       }
     );
@@ -90,6 +96,9 @@ export class DataComponent implements OnInit {
     this.dataService.deleteEmail(id).subscribe(
       (res => {
         this.getData();
+        if(this.contacts.length < 1){
+          this.resetFilters();
+        }
       }
       )
     );

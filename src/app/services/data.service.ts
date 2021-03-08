@@ -38,7 +38,7 @@ export class DataService {
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);
-    return throwError('Error encountered!');
+    return throwError('Could not fullfill request!');
   }
 
   addContact(email: string, checkbox: boolean): Observable<SubmitResponse> {

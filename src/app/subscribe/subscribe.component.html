@@ -1,60 +1,64 @@
-<div class="container-success" *ngIf="submited == true">
-    <div class="success"></div>
-    <h1 class="heading heading-success">Thanks for subscribing!</h1>
-    <h2 class="subheading subheading-success">You have successfully subscribed to our email listing. Check your email
-        for the discount
-        code.</h2>
-</div>
-<div *ngIf="submited == false">
-    <h1 class="heading">Subscribe to newsletter</h1>
-    <h2 class="subheading">Subscribe to our newsletter and get 10% discount on pineapple glasses.</h2>
-    <div class="container-input">
-        <form [formGroup]="validationService.form">
-            <div class="form-subscribe">
-                <input class="input-email" [formControlName]="'email'" type="text" name="email"
-                    placeholder="Type your email address here...">
-                <button [disabled]="validationService.form.status == 'INVALID'" class="btn-subscribe"
-                    (click)="submit()"><i class="icon-ic_arrow"></i></button>
-            </div>
-            <div class="container-checkbox">
-                <label class="checkbox-label" for="terms">
-                    <span class="checkbox-span">
-                        <input class="checkbox-standart" [formControlName]="'checkbox'" ng-checked="true" id="terms"
-                            type="checkbox" name="terms" checked>
-                        <span class="checkbox-custom">
-                            <i class="icon-ic_checkmark"></i>
-                        </span>
-                    </span>
-                </label>
-                <label for="terms"><span class="text">I agree to <a class="link" href="#">terms of
-                            service</a></span></label>
-            </div>
-            <!-- Email input validation error messages -->
-            <div class="msg error-email" *ngIf="validationService.form.controls.email.touched == true ||
-                                                submitResponse.responseCode > 0">
-                <div *ngIf=" validationService.form.controls.email.value=='' || 
-                             submitResponse.responseCode == 2">
-                    Email address is required
+<section [ngClass]="{'container-subscribe-success' : stateService.submited,
+                     'container-subscribe' : !stateService.submited}">
+    <div class="container-success" *ngIf="stateService.submited == true">
+        <div class="success"></div>
+        <h1 class="heading heading-success">Thanks for subscribing!</h1>
+        <h2 class="subheading subheading-success">You have successfully subscribed to our email listing. Check your
+            email
+            for the discount
+            code.</h2>
+    </div>
+    <div *ngIf="stateService.submited == false">
+        <h1 class="heading">Subscribe to newsletter</h1>
+        <h2 class="subheading">Subscribe to our newsletter and get 10% discount on pineapple glasses.</h2>
+        <div class="container-input">
+            <form [formGroup]="validationService.form">
+                <div class="form-subscribe">
+                    <input class="input-email" [formControlName]="'email'" type="text" name="email"
+                        placeholder="Type your email address here...">
+                    <button [disabled]="validationService.form.status == 'INVALID'" class="btn-subscribe"
+                        (click)="submit()"><i class="icon-ic_arrow"></i></button>
                 </div>
-                <div *ngIf="validationService.form.controls.email.status == 'INVALID' ||
+                <div class="container-checkbox">
+                    <label class="checkbox-label" for="terms">
+                        <span class="checkbox-span">
+                            <input class="checkbox-standart" [formControlName]="'checkbox'" ng-checked="true" id="terms"
+                                type="checkbox" name="terms" checked>
+                            <span class="checkbox-custom">
+                                <i class="icon-ic_checkmark"></i>
+                            </span>
+                        </span>
+                    </label>
+                    <label for="terms"><span class="text">I agree to <a class="link" href="#">terms of
+                                service</a></span></label>
+                </div>
+                <!-- Email input validation error messages -->
+                <div class="msg error-email" *ngIf="validationService.form.controls.email.touched == true ||
+                                                submitResponse.responseCode > 0">
+                    <div *ngIf=" validationService.form.controls.email.value=='' || 
+                             submitResponse.responseCode == 2">
+                        Email address is required
+                    </div>
+                    <div *ngIf="validationService.form.controls.email.status == 'INVALID' ||
                             submitResponse.responseCode > 3">
-                    <div *ngIf="(validationService.form.controls.email.value != '' &&
+                        <div *ngIf="(validationService.form.controls.email.value != '' &&
                                 !validationService.form.controls.email.errors?.pattern &&
                                 submitResponse.responseCode != 5) ||
                                 submitResponse.responseCode == 4">
-                        Please provide a valid e-mail address
-                    </div>
-                    <div *ngIf="validationService.form.controls.email.errors?.pattern  ||
+                            Please provide a valid e-mail address
+                        </div>
+                        <div *ngIf="validationService.form.controls.email.errors?.pattern  ||
                                 submitResponse.responseCode == 5">
-                        We are not accepting subscriptions from Colombia emails
+                            We are not accepting subscriptions from Colombia emails
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <!-- Checkbox validation error message -->
-    <div class="msg error-checkbox" *ngIf="validationService.form.controls.checkbox.value == false ||
+            </form>
+        </div>
+        <!-- Checkbox validation error message -->
+        <div class="msg error-checkbox" *ngIf="validationService.form.controls.checkbox.value == false ||
                                            submitResponse.checkbox == false">
-        You must accept the terms and conditions
+            You must accept the terms and conditions
+        </div>
     </div>
-</div>
+</section>
